@@ -45,35 +45,58 @@ class CityInput extends React.Component {
 		super(props);
 		this.state = {
 			valueOfInput: "Toronto",
-			valueOfInputState: "Ontario"	
+			autoCompleteList: []	
 		}
 		this.handleTyping = this.handleTyping.bind(this);
-		this.handleStateTyping = this.handleStateTyping.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	handleTyping(event) {
+		this.handleAutoComplete(event.target.value);
 		this.setState({
 			valueOfInput: event.target.value
 		})	
 	}
-	handleStateTyping(event) {
-		this.setState({
-			valueOfInputState: event.target.value
-		})
+	handleAutoComplete(value) {
+		ajax({
+			url: "http://autocomplete.wunderground.com/aq?&cb=call=?",
+			dataType: "jsonp",
+			method: "GET",
+			data: {
+				query: value,
+			}
+		}).then((res) => {
+			this.setState({
+				autoCompleteList: res.RESULTS
+			})
+		});
 	}
-	handleSubmit(event) {
-		event.preventDefault();
-		this.props.getWeatherData(this.state.valueOfInput, this.state.valueOfInputState)
-		// this.props.updateCityValueState(this.state.valueOfInput);
+	handleLocationClick(link, event) {
+		this.props.getWeatherData(link)
+	}
+	renderAutoCompleteList() {
+		if (this.state.autoCompleteList.length == 0) {
+			return null;	
+		} else {
+			return (
+				<ul>
+					{this.state.autoCompleteList.map((item) => {
+						return (
+							<li key={item.zmw} onClick={this.handleLocationClick.bind(this, item.l)}>
+								{item.name}
+							</li>
+						)
+					})}
+				</ul>
+			)
+		}
 	}
 	render() {
+		let autoCompleteList=this.renderAutoCompleteList();
 		//onChange tracks the keystrokes so it is able to put the keystrokes into a value for later use.  The value is stored inside of a state.
 		return (
 			<div className="form">
-				<input className="weatherInput cityInput" type="text" placeholder="City" value={this.state.valueOfInput} onChange={this.handleTyping} />
-				<input className="weatherInput stateInput" type="text" placeholder="Provence" value={this.state.valueOfInputState} onChange={this.handleStateTyping} />
-				<button onClick={this.handleSubmit}>Submit</button>
+				<input className="weatherInput cityInput" type="text" placeholder="Location" value={this.state.valueOfInput} onChange={this.handleTyping} />
+				{autoCompleteList}
 			</div>
 		)
 	}
@@ -88,13 +111,12 @@ class App extends React.Component {
 		this.getWeatherData = this.getWeatherData.bind(this);
 		this.updateCityValueState = this.updateCityValueState.bind(this);
 	}
-	getWeatherData(city, state) {
-		console.log(city);
+	getWeatherData(link) {
 		//ajax for weather goes here and this.state.weather to the response
 		ajax({
-            url: `http://api.wunderground.com/api/61f0a55cb00602dc/conditions/q/` + state + `/` + city + `.json`,
+            url: `http://api.wunderground.com/api/61f0a55cb00602dc/conditions/` + link + `.json`,
             dataType: "jsonp",
-            method: 'GET'
+            method: "GET"
         }).then((res) => {
             // this.updateCityValueState(res);
             this.setState({
