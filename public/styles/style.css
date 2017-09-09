@@ -1,0 +1,27 @@
+body {
+  background-color: #eee;
+  font-family: 'Open Sans', sans-serif; }
+
+.weatherRoot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column; }
+
+header {
+  text-align: center;
+  font-family: 'Roboto', sans-serif; }
+
+h1 {
+  font-size: 50px; }
+
+.weatherInput, button {
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  margin: 2px; }
+
+footer {
+  position: absolute;
+  bottom: 0; }

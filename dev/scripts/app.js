@@ -21,7 +21,7 @@ class Weather extends React.Component {
 			return null;
 		} else {
 			return (
-				<div>
+				<div className="weather">
 					<h2 className="currentWeather">Current Weather: <span>{this.props.weatherData.temp_c}</span></h2>
 					<h2 className="skyCondition">Sky Condition: <span>{this.props.weatherData.weather}</span></h2>
 					<h3>{this.props.weatherData.observation_time}</h3>
@@ -34,7 +34,7 @@ class Weather extends React.Component {
 	render() {
 		var renderWeatherData = this.renderWeather();
 		return (
-			<div>
+			<div className="weatherContainer">
 				{renderWeatherData}
 			</div>
 		)
@@ -70,9 +70,9 @@ class CityInput extends React.Component {
 	render() {
 		//onChange tracks the keystrokes so it is able to put the keystrokes into a value for later use.  The value is stored inside of a state.
 		return (
-			<div>
-				<input className="cityInput" type="text" placeholder="City" value={this.state.valueOfInput} onChange={this.handleTyping} />
-				<input className="stateInput" type="text" placeholder="Provence" value={this.state.valueOfInputState} onChange={this.handleStateTyping} />
+			<div className="form">
+				<input className="weatherInput cityInput" type="text" placeholder="City" value={this.state.valueOfInput} onChange={this.handleTyping} />
+				<input className="weatherInput stateInput" type="text" placeholder="Provence" value={this.state.valueOfInputState} onChange={this.handleStateTyping} />
 				<button onClick={this.handleSubmit}>Submit</button>
 			</div>
 		)
@@ -111,12 +111,12 @@ class App extends React.Component {
 	render() {
 
 		return (
-			<div>
+			<div className="weatherRoot">
 				<header>
 					<h1>The Weather Outside</h1>
 				</header>
 				<CityInput getWeatherData={this.getWeatherData} />
-				<section><Weather weatherData={this.state.response} /></section>
+				<section className="weatherSection"><Weather weatherData={this.state.response} /></section>
 				<footer>
 					<p>Beckah Moscuzza, 2017</p>
 				</footer>
