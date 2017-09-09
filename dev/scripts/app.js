@@ -22,9 +22,10 @@ class Weather extends React.Component {
 		} else {
 			return (
 				<div className="weather">
-					<h2 className="currentWeather">Current Weather: <span>{this.props.weatherData.temp_c}</span></h2>
-					<h2 className="skyCondition">Sky Condition: <span>{this.props.weatherData.weather}</span></h2>
-					<h3>{this.props.weatherData.observation_time}</h3>
+					<h2 className="locationName">{this.props.weatherData.display_location.full}</h2>
+					<h3 className="currentWeather">Current Weather: <span>{this.props.weatherData.temp_c}</span></h3>
+					<h3 className="skyCondition">Sky Condition: <span>{this.props.weatherData.weather}</span></h3>
+					<h4>{this.props.weatherData.observation_time}</h4>
 				</div>
 			)	
 		}
@@ -72,6 +73,9 @@ class CityInput extends React.Component {
 	}
 	handleLocationClick(link, event) {
 		this.props.getWeatherData(link)
+		this.setState({
+			autoCompleteList: []
+		})
 	}
 	renderAutoCompleteList() {
 		if (this.state.autoCompleteList.length == 0) {
@@ -142,7 +146,7 @@ class App extends React.Component {
 					<section className="weatherSection"><Weather weatherData={this.state.response} /></section>
 				</div>
 				<footer>
-					<p>Beckah Moscuzza, 2017</p>
+					<p><a href="http://beckah.moscuzza.ca/">Beckah Moscuzza</a> 2017 - Wunderground API - Wunderground Autocomplete API - 500px API</p>
 				</footer>
 			</div>
 		)

@@ -17,7 +17,21 @@ body {
 }
 .weatherRootSection {
 	background-color: rgba(255, 255, 255, 0.5);
-	padding: 0 30px;
+	padding: 0 30px 20px 30px;
+	text-align: center;
+	border-radius: 15px;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style: none;
+	cursor: pointer;
+}
+li:hover {
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
 }
 header {
 	text-align: center;
@@ -26,14 +40,22 @@ header {
 h1 {
 	font-size: 50px;
 }
-.weatherInput, button {
+.weatherInput {
 	text-align: center;
-	font-size: 15px;
-	padding: 5px;
-	margin: 2px;
-	font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    padding: 5px;
+    margin: 2px;
+    font-family: 'Roboto', sans-serif;
+    width: 50%;
 }
 footer {
 	position: absolute;
 	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.2);
+	text-align: center;
+	width: 100%;
+}
+footer a {
+	text-decoration: none;
+	color: #B4D455;
 }
