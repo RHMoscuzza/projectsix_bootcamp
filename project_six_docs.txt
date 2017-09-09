@@ -1,0 +1,31 @@
+500px API info:
+Consumer Key: RhnpXYQTPL1V7BFpweEQeBR0eei6v7xIF5vb5Qxe
+Consumer Secret: Vwjri2cjOo7NOp1RMd66RSLl7Bl7Kf0axEjkg8f9
+JavaScript SDK Key: 5c36aeb691b95f7bb7f730461be848cfce67890a
+example for rain images
+https://api.500px.com/v1/photos/search?term=rain&consumer_key=RhnpXYQTPL1V7BFpweEQeBR0eei6v7xIF5vb5Qxe
+
+Wunderground API Info:
+87897118a4e511dc
+example http://api.wunderground.com/api/87897118a4e511dc/forecast/q/CA/San_Francisco.json
+
+Pseudo Code:
+//using git hub retrieve boiler plate and do all installs, including "react router"
+//once installed run gulp
+//set up "app.js" 
+//using react build the "first" page using class "home", this will be the main landing area for the application
+//call this class in the "App"
+//when basic layout complete begin styling
+//using 500px input a random landscape img as the background for the "first" page, this img will be different each time you reload
+//create the header using <h1> with the title
+//set up the body with <h2>Pick a city</h2>, input field, and submit button
+//*optional: add fixed footer that will stay in place for both "pages"
+//when "page" one is complete create a new class "results" for the "second" page
+//this "page" will display the time, date, selected city, current weather and have a background img that matches the current weather
+//this "page" will be built using React and React Router
+//this "page" will also have a home button to go back to the main page
+//create the header with <h1> to display the time and date
+//using <h2> display the current city followed by <h3> current weather for the selected city
+//using 500px input a random image that matches the current weather (ie today is rainy, img will be rain related), this image will be different each time you reload
+//a link to take you home will be placed in the top right corner of the "page"
+//insert a footer at the bottom of the page stating which APIs were used for this application
