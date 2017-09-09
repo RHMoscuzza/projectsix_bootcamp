@@ -112,11 +112,13 @@ class App extends React.Component {
 
 		return (
 			<div className="weatherRoot">
-				<header>
-					<h1>The Weather Outside</h1>
-				</header>
-				<CityInput getWeatherData={this.getWeatherData} />
-				<section className="weatherSection"><Weather weatherData={this.state.response} /></section>
+				<div className="weatherRootSection">
+					<header>
+						<h1>The Weather Outside</h1>
+					</header>
+					<CityInput getWeatherData={this.getWeatherData} />
+					<section className="weatherSection"><Weather weatherData={this.state.response} /></section>
+				</div>
 				<footer>
 					<p>Beckah Moscuzza, 2017</p>
 				</footer>
