@@ -1,19 +1,15 @@
 // font-family: 'Roboto', sans-serif;
 // font-family: 'Open Sans', sans-serif;
 
-body {
-	background-image: url("../../images/temp_background.jpg");
+.weatherRoot {
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-family: 'Open Sans', sans-serif;
-}
-.weatherRoot {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
 	flex-direction: column;
-	// background-color: rgba(38, 12, 12, 0.36);
 }
 .weatherRootSection {
 	background-color: rgba(255, 255, 255, 0.5);

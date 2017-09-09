@@ -110,7 +110,8 @@ class App extends React.Component {
 		super();
 		this.state = {
 			weather: null,
-			response: undefined
+			response: undefined,
+			backgroundImage: "../../images/temp_background.jpg"
 		}
 		this.getWeatherData = this.getWeatherData.bind(this);
 		this.updateCityValueState = this.updateCityValueState.bind(this);
@@ -126,6 +127,7 @@ class App extends React.Component {
             this.setState({
             	response: res.current_observation,
             });
+            this.getImageData();
         });
 	}
 	updateCityValueState(value) {
@@ -134,10 +136,29 @@ class App extends React.Component {
 			response: value,
 		});
 	}
+	getImageData() {
+		console.log(this.state.response);
+		ajax({
+			url: "https://api.500px.com/v1/photos/search",
+			dataType: "json",
+			method: "GET",
+			data: {
+				image_size: 2048,
+				term: this.state.response.weather,
+				consumer_key: "RhnpXYQTPL1V7BFpweEQeBR0eei6v7xIF5vb5Qxe"
+			}
+		}).then((res) => {
+			this.setState({
+				backgroundImage: res.photos[0].image_url
+			})
+		})
+	}
 	render() {
-
+		let bgImage = {
+			backgroundImage: "url(" + this.state.backgroundImage + ")"
+		}
 		return (
-			<div className="weatherRoot">
+			<div className="weatherRoot" style={bgImage}>
 				<div className="weatherRootSection">
 					<header>
 						<h1>The Weather Outside</h1>
