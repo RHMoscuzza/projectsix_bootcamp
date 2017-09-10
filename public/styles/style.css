@@ -14,7 +14,7 @@ body, html {
 
 .weatherRootSection {
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 0 30px 20px 30px;
+  padding: 0 30px 10px 30px;
   text-align: center;
   border-radius: 15px; }
 
@@ -48,10 +48,32 @@ h1 {
 footer {
   position: absolute;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
   text-align: center;
   width: 100%; }
 
 footer a {
   text-decoration: none;
+  color: #000;
+  font-weight: bold; }
+
+footer a:hover {
   color: #B4D455; }
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 25px; }
+  h2 {
+    font-size: 15px; }
+  h3 {
+    font-size: 12px; }
+  h4 {
+    font-size: 10px; }
+  .weatherInput {
+    font-size: 15px;
+    padding: 2px;
+    margin: 0; }
+  li {
+    font-size: 10px; }
+  footer {
+    font-size: 10px; } }

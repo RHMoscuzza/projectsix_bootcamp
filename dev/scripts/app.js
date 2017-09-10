@@ -23,7 +23,7 @@ class Weather extends React.Component {
 			return (
 				<div className="weather">
 					<h2 className="locationName">{this.props.weatherData.display_location.full}</h2>
-					<h3 className="currentWeather">Current Weather: <span>{this.props.weatherData.temp_c}</span></h3>
+					<h3 className="currentWeather">Current Weather: <span>{this.props.weatherData.temp_c}</span>°C</h3>
 					<h3 className="skyCondition">Sky Condition: <span>{this.props.weatherData.weather}</span></h3>
 					<h4>{this.props.weatherData.observation_time}</h4>
 				</div>
@@ -45,7 +45,7 @@ class CityInput extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			valueOfInput: "Toronto",
+			valueOfInput: "",
 			autoCompleteList: []	
 		}
 		this.handleTyping = this.handleTyping.bind(this);
