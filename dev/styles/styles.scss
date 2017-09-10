@@ -1,6 +1,9 @@
 // font-family: 'Roboto', sans-serif;
 // font-family: 'Open Sans', sans-serif;
-
+body, html {
+	margin: 0;
+	padding: 0;
+}
 .weatherRoot {
 	background-repeat: no-repeat;
 	background-size: cover;

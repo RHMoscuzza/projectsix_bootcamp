@@ -143,13 +143,17 @@ class App extends React.Component {
 			dataType: "json",
 			method: "GET",
 			data: {
-				image_size: 2048,
-				term: this.state.response.weather,
-				consumer_key: "RhnpXYQTPL1V7BFpweEQeBR0eei6v7xIF5vb5Qxe"
+				image_size: 1080,
+				term: this.state.response.weather + " weather",
+				consumer_key: "RhnpXYQTPL1V7BFpweEQeBR0eei6v7xIF5vb5Qxe",
+				exclude: "Nude,People,Uncategorized,Food,Wedding,Animals,Family",
+				rpp: 200,
+				sort: "times_viewed"
 			}
 		}).then((res) => {
+			let randomizer = Math.floor(Math.random() * res.photos.length);
 			this.setState({
-				backgroundImage: res.photos[0].image_url
+				backgroundImage: res.photos[randomizer].image_url
 			})
 		})
 	}
