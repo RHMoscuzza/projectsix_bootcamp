@@ -95,6 +95,7 @@ class CityInput extends React.Component {
 		//onChange tracks the keystrokes so it is able to put the keystrokes into a value for later use.  The value is stored inside of a state.
 		return (
 			<div className="form">
+				<label>Type in a city name</label>
 				<input className="weatherInput cityInput" type="text" placeholder="Location" value={this.state.valueOfInput} onChange={this.handleTyping} />
 				{autoCompleteList}
 			</div>
