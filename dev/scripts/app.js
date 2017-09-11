@@ -13,7 +13,6 @@ class Weather extends React.Component {
 		//State are the values of the current component.  THe values of this.state can be changed however they can only be updated by typing this.setState({cars: "fast"}).  THis will update the property cars with the value fast.  This is the only way you can update this value, if you try otherwise the program will not see the change and will not update the value.  
 		//Props and State are globally accessible to the current component.  You can access them by typing this.state.value... or this.props.value...
 		this.state = {
-
 		}
 	}
 	renderWeather() {
@@ -28,10 +27,8 @@ class Weather extends React.Component {
 					<h4>{this.props.weatherData.observation_time}</h4>
 				</div>
 			)	
-		}
-		
+		}	
 	}
-
 	render() {
 		var renderWeatherData = this.renderWeather();
 		return (
@@ -50,7 +47,6 @@ class CityInput extends React.Component {
 		}
 		this.handleTyping = this.handleTyping.bind(this);
 	}
-
 	handleTyping(event) {
 		this.handleAutoComplete(event.target.value);
 		this.setState({
@@ -117,13 +113,11 @@ class App extends React.Component {
 		this.updateCityValueState = this.updateCityValueState.bind(this);
 	}
 	getWeatherData(link) {
-		//ajax for weather goes here and this.state.weather to the response
 		ajax({
-            url: `http://api.wunderground.com/api/61f0a55cb00602dc/conditions/` + link + `.json`,
+            url: `http://api.wunderground.com/api/87897118a4e511dc/conditions/` + link + `.json`,
             dataType: "jsonp",
-            method: "GET"
+            method: "GET",
         }).then((res) => {
-            // this.updateCityValueState(res);
             this.setState({
             	response: res.current_observation,
             });
@@ -146,7 +140,7 @@ class App extends React.Component {
 				image_size: 1080,
 				term: this.state.response.weather + " weather",
 				consumer_key: "RhnpXYQTPL1V7BFpweEQeBR0eei6v7xIF5vb5Qxe",
-				exclude: "Nude,People,Uncategorized,Food,Wedding,Animals,Family,City and Architecture,Family",
+				exclude: "Nude,People,Uncategorized,Food,Wedding,Animals,Family",
 				rpp: 200,
 				sort: "times_viewed"
 			}
@@ -177,7 +171,4 @@ class App extends React.Component {
 		)
 	}
 }
-
-
 ReactDOM.render(<App />, document.getElementById("app"));
-console.log('it worked!')
