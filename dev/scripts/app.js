@@ -146,7 +146,7 @@ class App extends React.Component {
 				image_size: 1080,
 				term: this.state.response.weather + " weather",
 				consumer_key: "RhnpXYQTPL1V7BFpweEQeBR0eei6v7xIF5vb5Qxe",
-				exclude: "Nude,People,Uncategorized,Food,Wedding,Animals,Family",
+				exclude: "Nude,People,Uncategorized,Food,Wedding,Animals,Family,City and Architecture,Family",
 				rpp: 200,
 				sort: "times_viewed"
 			}
