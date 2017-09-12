@@ -1,3 +1,17 @@
+
+
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCLdc-FeCmsH87ZWgU5bDZeA_xhfNhLc0E",
+    authDomain: "weather-picture-app.firebaseapp.com",
+    databaseURL: "https://weather-picture-app.firebaseio.com",
+    projectId: "weather-picture-app",
+    storageBucket: "weather-picture-app.appspot.com",
+    messagingSenderId: "709634019090"
+  };
+  firebase.initializeApp(config);
+
 import React from "react";
 import ReactDOM from "react-Dom";
 import { ajax } from "jquery";
