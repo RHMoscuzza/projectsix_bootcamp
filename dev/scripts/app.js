@@ -1,3 +1,15 @@
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCLdc-FeCmsH87ZWgU5bDZeA_xhfNhLc0E",
+    authDomain: "weather-picture-app.firebaseapp.com",
+    databaseURL: "https://weather-picture-app.firebaseio.com",
+    projectId: "weather-picture-app",
+    storageBucket: "weather-picture-app.appspot.com",
+    messagingSenderId: "709634019090"
+  };
+  firebase.initializeApp(config);
+
+
   import React from "react";
   import ReactDOM from "react-Dom";
   import { ajax } from "jquery";
@@ -55,7 +67,7 @@
   	}
   	handleAutoComplete(value) {
   		ajax({
-  			url: "http://autocomplete.wunderground.com/aq?&cb=call=?",
+  			url: "https://autocomplete.wunderground.com/aq?&cb=call=?",
   			dataType: "jsonp",
   			method: "GET",
   			data: {
@@ -115,7 +127,7 @@
   	}
   	getWeatherData(link) {
   		ajax({
-              url: `http://api.wunderground.com/api/87897118a4e511dc/conditions/` + link + `.json`,
+              url: `https://api.wunderground.com/api/87897118a4e511dc/conditions/` + link + `.json`,
               dataType: "jsonp",
               method: "GET",
           }).then((res) => {
