@@ -18,12 +18,8 @@
       Route, Link } from "react-router-dom";
 
   class Weather extends React.Component {
-  	//constructor is like the contractor building the house, it's the first thing running in each component.  It is the scaffolding for the component.
   	constructor(props) {
-  		//Props are the values that the parent component (in this case the app component) passes to the child.  Props cannot be modified.  This means you cannot do this.props.car = "fast" because that would try to change the value.  If you need to change the value of the props you need to update the parent passing the prop to the child.  An example of this is the updateCityValueState.
   		super(props);
-  		//State are the values of the current component.  THe values of this.state can be changed however they can only be updated by typing this.setState({cars: "fast"}).  THis will update the property cars with the value fast.  This is the only way you can update this value, if you try otherwise the program will not see the change and will not update the value.  
-  		//Props and State are globally accessible to the current component.  You can access them by typing this.state.value... or this.props.value...
   		this.state = {
   		}
   	}
